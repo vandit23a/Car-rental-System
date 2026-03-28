@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+<h2>Bill</h2>
+
+<p>User: {{ booking.user.username }}</p>
+<p>Car: {{ booking.car.name }}</p>
+<p>From: {{ booking.start_date }}</p>
+<p>To: {{ booking.end_date }}</p>
+<p>Total: ₹{{ booking.total_amount }}</p>
+
+<a href="/home/dashboard/">
+    <button>Back to Dashboard</button>
+</a>
+</div>
+{% endblock %}

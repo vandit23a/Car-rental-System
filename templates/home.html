@@ -1,5 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Welcome to Car Rental System</h2>
+<h2>Available Cars</h2>
+
+{% for car in cars %}
+<div class="card">
+    <h3>{{ car.name }}</h3>
+    <p>Category: {{ car.category.name }}</p>
+    <p>Price: ₹{{ car.price_per_day }}</p>
+
+    <a href="/home/book/{{ car.id }}/">
+        <button>Book Now</button>
+    </a>
+</div>
+{% endfor %}
+
 {% endblock %}

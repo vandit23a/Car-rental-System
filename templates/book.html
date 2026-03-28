@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="card">
+<h2>Book Car</h2>
+
+<h3>{{ car.name }}</h3>
+<p>Price: ₹{{ car.price_per_day }}</p>
+
+{% if error %}
+<p class="error">{{ error }}</p>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+
+    <label>Start Date:</label><br>
+    <input type="date" name="start_date"><br>
+
+    <label>End Date:</label><br>
+    <input type="date" name="end_date"><br><br>
+
+    <button type="submit">Confirm Booking</button>
+</form>
+</div>
+{% endblock %}

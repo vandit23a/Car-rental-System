@@ -1,9 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h2>My Bookings</h2>
 
-<h2>Dashboard</h2>
+{% for booking in bookings %}
+<div class="card">
+    <p>Car: {{ booking.car.name }}</p>
+    <p>From: {{ booking.start_date }}</p>
+    <p>To: {{ booking.end_date }}</p>
+    <p>Total: ₹{{ booking.total_amount }}</p>
 
-Welcome {{ user.username }}
+    <a href="/home/bill/{{ booking.id }}/">
+        <button>View Bill</button>
+    </a>
+</div>
+{% endfor %}
 
 {% endblock %}
